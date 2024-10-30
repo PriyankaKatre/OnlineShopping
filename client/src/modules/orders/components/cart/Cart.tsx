@@ -14,7 +14,7 @@ let Cart:React.FC<IProps> = () => {
         return state.orders;
     });
 
-    let {loading , cartItems} = orderState;
+    let {cartItems} = orderState;
 
     let IncrementQty = (productId : string) => {
         dispatch(incrementProductQty(productId));

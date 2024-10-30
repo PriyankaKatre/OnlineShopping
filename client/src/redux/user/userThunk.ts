@@ -6,7 +6,6 @@ import { setAlert } from "./alertSlice";
 import { getToken, isLoggedIn } from "../../util/AuthUtils";
 import { setTokenHeader } from "../../util/TokenUtil";
 
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 // Define a service using a base URL and expected endpoints
 // export const customersApi = createApi({

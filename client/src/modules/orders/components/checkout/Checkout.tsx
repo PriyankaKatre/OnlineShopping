@@ -1,33 +1,26 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {useDispatch, useSelector} from "react-redux";
-
-import stripeImage from '../../../../assets/img/uibrains.jpg';
+import { useSelector } from "react-redux";
 import { UserState } from '../../../../models/IUser';
 import { OrderState } from '../../../../models/IOrder';
 import { CartUtil } from '../../../../util/CartUtils';
 
 interface IProps{}
 
-//const stripeAPIKey = process.env.REACT_APP_STRIPE_API_KEY;
-let CheckOut:React.FC<IProps> = () => {
-    //console.log(process.env.REACT_APP_STRIPE_API_KEY);
+const CheckOut:React.FC<IProps> = () => {
 
-    let dispatch = useDispatch();
-    //let history = useHistory();
-
-    let userState:UserState = useSelector((state : {users : UserState}) => {
+    const userState:UserState = useSelector((state : {users : UserState}) => {
         return state.users;
     });
 
 
-    let {loading , user} = userState;
+    const {user} = userState;
 
-    let orderState:OrderState = useSelector((state : {orders : OrderState}) => {
+    const orderState:OrderState = useSelector((state : {orders : OrderState}) => {
         return state.orders;
     });
 
-    let {cartItems} = orderState;
+    const {cartItems} = orderState;
 
     // Accept the Stripe payment form
     // let handleToken = async (token?, addresses?) => {

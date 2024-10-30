@@ -14,7 +14,7 @@ let MensCollection: React.FC<IProps> = () => {
         return state.products
     })
 
-    let {loading , products , errorMessage} = productState;
+    let { loading, products } = productState;
 
     useEffect(() => {
         dispatch(getMensProduct() as any)

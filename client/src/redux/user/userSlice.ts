@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IUser, UserState } from "../../models/IUser";
 import { addUserAddress, getLoggedInUserInfo, loginUser, registerUser } from "./userThunk";
-import { setTokenHeader } from "../../util/TokenUtil";
+
 
 const initialState: UserState = {
     loading: false,
@@ -65,7 +65,7 @@ const extraReducer = (builder: any) => {
     .addCase(addUserAddress.pending, (state:UserState) => {
         state.loading = true
     })
-      .addCase(addUserAddress.fulfilled, (state: UserState, action: any) => {
+      .addCase(addUserAddress.fulfilled, (state: UserState) => {
         state.loading = false
         //state.user = action.payload
         //state.isAuthenticated = true

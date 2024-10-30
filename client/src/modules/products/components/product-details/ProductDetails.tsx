@@ -15,7 +15,7 @@ function ProductDetails() {
 
 
 
-    let { loading, product, errorMessage } = productState;
+    let { loading, product } = productState;
 
      console.log('product', product)
 

@@ -1,8 +1,5 @@
-import React from "react";
-import {Route, Navigate} from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 import { isLoggedIn } from "../util/AuthUtils";
-import { useSelector } from "react-redux";
-
 
 // let PrivateRoute = ({ element: Element, ...rest }: any) => {
 //     console.log('Element', Element)
@@ -12,7 +9,6 @@ import { useSelector } from "react-redux";
 //     }}/>
 // };
 function PrivateRoute({ children }: any) {
-
-     return !isLoggedIn() ? <Navigate to="/user/login"/> : children
+  return !isLoggedIn() ? <Navigate to="/user/login" /> : children;
 }
 export default PrivateRoute;

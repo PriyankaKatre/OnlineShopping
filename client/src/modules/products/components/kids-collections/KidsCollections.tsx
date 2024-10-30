@@ -12,13 +12,13 @@ function KidsCollections() {
         return state.products
     })
 
-    let { loading, products, errorMessage } = productState;
+    const { loading, products } = productState;
 
     useEffect(() => {
         dispatch(getKidsProduct() as any)
     }, [])
 
-     let AddToCartHandler = (product: IProduct) => {
+     const AddToCartHandler = (product: IProduct) => {
          // dispatch action add to cart
         dispatch(addToCart(product));
     };

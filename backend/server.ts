@@ -1,12 +1,10 @@
 import express from "express";
 import cors from "cors";
 import dotEnv from "dotenv";
-import mongoose from "mongoose";
 import userRouter from "./router/userRouter";
 import productRouter from "./router/productRouter";
 import orderRouter from "./router/orderRouter";
 import paymentRouter from "./router/paymentRouter";
-import multer from "multer";
 import path from "path";
 import connectDB from "./db/dbConnection";
 
@@ -29,8 +27,15 @@ app.get('/', (request: express.Request, response:express.Response) => {
     response.send('Online shoping application Backend')
 })
 
-// Router configuration
+// Home page url for application
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname , 'client' , 'dist')));
+    app.get('/', (request,response) => {
+        response.sendFile(path.join(__dirname , 'client' , 'dist' , 'index.html'));
+    });
+}
 
+// Router configuration
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter)
 app.use('/api/orders', orderRouter)

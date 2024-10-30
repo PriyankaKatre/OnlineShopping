@@ -12,7 +12,7 @@ function WomensCollections() {
         return state.products
     })
 
-    let { loading, products, errorMessage } = productState;
+    let { loading, products } = productState;
 
     useEffect(() => {
         dispatch(getWomensProduct() as any)
